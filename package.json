@@ -1,11 +1,13 @@
 {
   "name": "post-delete",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
     "dev": "nodemon src/server.js",
+    "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
     "start": "node src/server.js",
     "predeploy": "npm audit",
     "deploy": "git push heroku master"
@@ -15,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
+    "express": "^4.17.1",
     "mocha": "^6.2.2",
     "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
